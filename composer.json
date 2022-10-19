@@ -1,28 +1,27 @@
 {
-    "name":              "juanchosl/envvars",
-    "description":       "A small, lightweight utility to read ENV files and append his content to environment variables",
-    "type":              "library",
-    "license":           "MIT",
-    "homepage":          "https://github.com/JuanchoSL/EnvVars",
-    "keywords":          [
+    "name": "juanchosl/envvars",
+    "description": "A small, lightweight utility to read ENV files and append his content to environment variables",
+    "type": "package",
+    "license": "MIT",
+    "homepage": "https://github.com/JuanchoSL/EnvVars",
+    "keywords": [
         "env",
         "environment",
-		"envvars"
+        "envvars"
     ],
     "authors": [
         {
-            "name":     "Juan Sánchez Lecegui",
-            "email":    "JuanchoSL@hotmail.com",
-            "homepage": "https://github.com/juanchoSL/"
+            "name": "Juan Sánchez Lecegui",
+            "email": "JuanchoSL@hotmail.com",
+            "homepage": "https://github.com/JuanchoSL/"
         }
     ],
     "require": {
         "php": "^7.1 || ^8.0"
     },
- 
     "autoload": {
         "psr-4": {
-            "JuanchoSL\\": "src/"
+            "JuanchoSL\\EnvVars\\": "src/"
         }
     }
 }
