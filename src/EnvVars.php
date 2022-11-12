@@ -11,7 +11,7 @@ class EnvVars
      * @param string $filepath The path where the .env file is placed.
      * @throws \Exception
      */
-    public static function read($filepath)
+    public static function read($filepath): void
     {
         if (!is_file($filepath) || !file_exists($filepath)) {
             throw new \Exception("File {$filepath} not exists", 404);
