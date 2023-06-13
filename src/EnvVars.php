@@ -28,11 +28,13 @@ class EnvVars
             throw new NotFoundException("File {$filepath} not exists");
         }
         $configs = parse_ini_file($filepath, false, INI_SCANNER_RAW);
-        foreach ($configs as $key => $value) {
-            $key = trim($key);
-            $value = trim($value);
-            putenv("{$key}={$value}");
-            $_ENV[$key] = $value;
+        if (is_array($configs)) {
+            foreach ($configs as $key => $value) {
+                $key = trim($key);
+                $value = trim($value);
+                putenv("{$key}={$value}");
+                $_ENV[$key] = $value;
+            }
         }
     }
 
