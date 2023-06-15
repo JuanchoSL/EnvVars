@@ -25,7 +25,7 @@ class EnvVars
         }
 
         if (!file_exists($filepath)) {
-            throw new NotFoundException("File {$filepath} not exists");
+            throw new NotFoundException("File {$filepath} does not exists");
         }
         $configs = parse_ini_file($filepath, false, INI_SCANNER_RAW);
         if (is_array($configs)) {
