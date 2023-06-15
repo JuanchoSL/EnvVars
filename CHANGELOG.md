@@ -1,6 +1,19 @@
 # Change Log EnvVars
 
 
+## [1.0.3] - 2023-03-
+
+### Added
+
+- PHP Stan for quality code
+
+### Changed
+
+### Fixed
+
+- Fixed the parse file when is empty
+
+
 ## [1.0.2] - 2023-03-16
 
 ### Added
