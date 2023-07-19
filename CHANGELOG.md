@@ -1,7 +1,21 @@
 # Change Log EnvVars
 
 
-## [1.0.3] - 2023-03-
+## [1.0.4] - 2023-07-19
+
+### Added
+
+- gitattributes in order to clean download
+
+### Changed
+
+- Throw exception when path is empty
+
+### Fixed
+
+
+
+## [1.0.3] - 2023-06-15
 
 ### Added
 
