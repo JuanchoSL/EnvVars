@@ -2,6 +2,7 @@
 
 namespace JuanchoSL\EnvVars\Tests;
 
+use JuanchoSL\Exceptions\DestinationUnreachableException;
 use PHPUnit\Framework\TestCase;
 use JuanchoSL\EnvVars\EnvVars;
 use JuanchoSL\Exceptions\NotFoundException;
@@ -41,6 +42,7 @@ class ReadFileTest extends TestCase
     
     public function testReadEmpty()
     {
+        $this->expectException(DestinationUnreachableException::class);
         EnvVars::read(null);
         $this->assertEquals(getenv('IS_READED'), 'yes');
         $this->assertEquals($_ENV['IS_READED'], 'yes');
