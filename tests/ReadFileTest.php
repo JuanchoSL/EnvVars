@@ -2,6 +2,7 @@
 
 namespace JuanchoSL\EnvVars\Tests;
 
+use JuanchoSL\Exceptions\DestinationUnreachableException;
 use PHPUnit\Framework\TestCase;
 use JuanchoSL\EnvVars\EnvVars;
 use JuanchoSL\Exceptions\NotFoundException;
@@ -20,6 +21,7 @@ class ReadFileTest extends TestCase
         EnvVars::read(realpath(dirname(__DIR__, 1)) . DIRECTORY_SEPARATOR . '.env');
         $this->assertEquals(getenv('IS_READED'), 'yes');
         $this->assertEquals($_ENV['IS_READED'], 'yes');
+        
         $this->assertEquals(getenv('IS_BOOL'), true);
         $this->assertEquals(getenv('IS_BOOL'), 'true');
         $this->assertEquals($_ENV['IS_BOOL'], true);
@@ -31,20 +33,23 @@ class ReadFileTest extends TestCase
         EnvVars::read(realpath(dirname(__DIR__, 1)));
         $this->assertEquals(getenv('IS_READED'), 'yes');
         $this->assertEquals($_ENV['IS_READED'], 'yes');
-        $this->assertEquals($_ENV['IS_BOOL'], true);
-        $this->assertEquals($_ENV['IS_BOOL'], 'true');
+        
         $this->assertEquals(getenv('IS_BOOL'), true);
         $this->assertEquals(getenv('IS_BOOL'), 'true');
+        $this->assertEquals($_ENV['IS_BOOL'], true);
+        $this->assertEquals($_ENV['IS_BOOL'], 'true');
     }
     
     public function testReadEmpty()
     {
+        $this->expectException(DestinationUnreachableException::class);
         EnvVars::read(null);
         $this->assertEquals(getenv('IS_READED'), 'yes');
         $this->assertEquals($_ENV['IS_READED'], 'yes');
-        $this->assertEquals($_ENV['IS_BOOL'], true);
-        $this->assertEquals($_ENV['IS_BOOL'], 'true');
+
         $this->assertEquals(getenv('IS_BOOL'), true);
         $this->assertEquals(getenv('IS_BOOL'), 'true');
+        $this->assertEquals($_ENV['IS_BOOL'], true);
+        $this->assertEquals($_ENV['IS_BOOL'], 'true');
     }
 }
