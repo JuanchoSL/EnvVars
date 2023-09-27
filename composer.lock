@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JuanchoSL/Exceptions.git",
-                "reference": "af41ac84cb41ed6ea2addb7e22e32ed9ddeb7b68"
+                "reference": "1969661457c4910889bf6cc7f216b2e8ff1f7524"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JuanchoSL/Exceptions/zipball/af41ac84cb41ed6ea2addb7e22e32ed9ddeb7b68",
-                "reference": "af41ac84cb41ed6ea2addb7e22e32ed9ddeb7b68",
+                "url": "https://api.github.com/repos/JuanchoSL/Exceptions/zipball/1969661457c4910889bf6cc7f216b2e8ff1f7524",
+                "reference": "1969661457c4910889bf6cc7f216b2e8ff1f7524",
                 "shasum": ""
             },
             "require": {
@@ -61,7 +61,7 @@
                 "source": "https://github.com/JuanchoSL/Exceptions/tree/1.0.3",
                 "issues": "https://github.com/JuanchoSL/Exceptions/issues"
             },
-            "time": "2023-06-15T20:03:02+00:00"
+            "time": "2023-07-19T21:43:23+00:00"
         }
     ],
     "packages-dev": [
