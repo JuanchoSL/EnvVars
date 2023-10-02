@@ -1,6 +1,20 @@
 # Change Log EnvVars
 
 
+## [1.0.5] - 2023-10-02
+
+### Added
+
+- Interpreter for read variables as content of other variables from the same env file
+- eval system in order to evaluate php expressions into env vars
+
+### Changed
+
+- Filepath parameter for read method can not be empty, string type required
+
+### Fixed
+
+
 ## [1.0.4] - 2023-07-19
 
 ### Added
@@ -12,7 +26,6 @@
 - Throw exception when path is empty
 
 ### Fixed
-
 
 
 ## [1.0.3] - 2023-06-15
