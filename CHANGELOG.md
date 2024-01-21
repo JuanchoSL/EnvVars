@@ -1,6 +1,25 @@
 # Change Log EnvVars
 
 
+## [1.0.6] - 2024-01-21
+
+### Added
+
+- Return type values for public functions
+- added a parseFile method in order to add more config files to environment scope
+- More documentation
+
+### Changed
+
+- Use init static method instead read
+- eval static methos, evaluate complex strings instead environment var names, in order to reuse function
+- filepath parameter can be a directory with or without a final directory separator, realpath function is used internally
+
+### Fixed
+
+- Quality and clean code
+
+
 ## [1.0.5] - 2023-10-02
 
 ### Added
