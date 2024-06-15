@@ -6,37 +6,37 @@ A small, lightweight utility to read ENV files and append his content to environ
 This is a test project in order to check how works the composer installation directly from GitHub
 
 ## Install
-```
+```bash
 composer require juanchosl/envvars
 ```
 
 ## How to use it
 Load composer autoload and use the JuanchoSL\EnvVars\EnvVars class, with abstract _read_ method you can pass it the absolute file path or the dir path where the .ENV file are placed, the content has been putted into $\_ENV superglobal or you can use getenv(ENV_VAR_NAME) instead
-```
+```php
 use Juanchosl\EnvVars\EnvVars;
 ```
 ### Initialize
-```
+```php
 EnvVars::init(realpath(dirname(__DIR__, 1)) . DIRECTORY_SEPARATOR . '.env');
 ```
 Or
-```
+```php
 EnvVars::init(dirname(__DIR__, 1));
 ```
 
 ### Add more files
 Now, you can parse more files with new env vars in order to add to scope
-```
+```php
 $envvar = EnvVars::init(dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'.env-database');
 $envvar->parseFile(dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'.env-tokens')
 ```
 
 ### Call vars
-```
+```php
 $env_var = getenv('ENV_VAR_NAME');
 ```
 Or
-```
+```php
 $env_var = $_ENV['ENV_VAR_NAME'];
 ```
 
