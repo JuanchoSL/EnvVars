@@ -25,7 +25,7 @@ class EnvVars
     protected function __construct(string $filepath, iterable $options = [])
     {
         foreach ($options as $option => $value) {
-            if (array_key_exists($option, $value)) {
+            if (array_key_exists($option, $this->options)) {
                 $this->options[$option] = $value;
             }
         }
