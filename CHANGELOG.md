@@ -1,5 +1,14 @@
 # Change Log EnvVars
 
+## [1.0.7] - 2025-10-07
+
+### Added
+
+- New _options_ parameter in order to configure how we would work with the ini env file
+
+### Changed
+
+### Fixed
 
 ## [1.0.6] - 2024-01-21
 
@@ -19,7 +28,6 @@
 
 - Quality and clean code
 
-
 ## [1.0.5] - 2023-10-02
 
 ### Added
@@ -33,7 +41,6 @@
 
 ### Fixed
 
-
 ## [1.0.4] - 2023-07-19
 
 ### Added
@@ -46,7 +53,6 @@
 
 ### Fixed
 
-
 ## [1.0.3] - 2023-06-15
 
 ### Added
@@ -58,7 +64,6 @@
 ### Fixed
 
 - Fixed the parse file when is empty
-
 
 ## [1.0.2] - 2023-03-16
 
@@ -76,7 +81,6 @@
 
 - Fixed the default name when are not specified
 
-
 ## [1.0.1] - 2022-11-09
 
 ### Added
@@ -88,7 +92,6 @@
 - Path can be now a directory where the .env file is placed
 
 ### Fixed
-
 
 ## [1.0.0] - 2022-10-19
 
