@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace JuanchoSL\EnvVars;
@@ -9,18 +8,27 @@ use JuanchoSL\Exceptions\NotFoundException;
 
 class EnvVars
 {
+    const OPTION_PROCESS_SECTIONS = 'process_section';
 
     protected static EnvVars $instance;
 
     protected string $filepath;
+    protected iterable $options = [
+        self::OPTION_PROCESS_SECTIONS => false
+    ];
 
     /**
      * @var array<string,string> $temporal_array
      */
     protected array $temporal_array = [];
 
-    protected function __construct(string $filepath)
+    protected function __construct(string $filepath, iterable $options = [])
     {
+        foreach ($options as $option => $value) {
+            if (array_key_exists($option, $this->options)) {
+                $this->options[$option] = $value;
+            }
+        }
         $this->parseFile($filepath);
     }
 
@@ -28,11 +36,12 @@ class EnvVars
      * Read the env file and put his values into $_ENV superglobal in order to use it.
      * If filename is not specified, .env filename is assumed
      * @param string $filepath The path where the .env file is placed.
+     * @param iterable $options Define configurations for parse ini file, use EnvVars::OPTION_* constants
      * @return EnvVars A new EnvVars instance
      */
-    public static function init(string $filepath): EnvVars
+    public static function init(string $filepath, iterable $options = []): EnvVars
     {
-        return self::$instance = new EnvVars($filepath);
+        return self::$instance = new EnvVars($filepath, $options);
     }
 
     public static function read(string $filepath): void
@@ -76,8 +85,9 @@ class EnvVars
 
     protected function processContent(): void
     {
-        $configs = parse_ini_file($this->filepath, false, INI_SCANNER_RAW);
+        $configs = parse_ini_file($this->filepath, $this->options[static::OPTION_PROCESS_SECTIONS], INI_SCANNER_RAW);
         if (is_array($configs)) {
+            $configs = $this->mergeSections($configs);
             foreach ($configs as $key => $value) {
                 if ($this->isWithVars($value) || $this->isEvaluable($value)) {
                     $this->temporal_array[$key] = $value;
@@ -98,6 +108,22 @@ class EnvVars
                 unset($this->temporal_array[$key]);
             }
         }
+    }
+
+    protected function mergeSections(iterable $parts, string $preppend = '')
+    {
+        foreach ($parts as $key => $part) {
+            unset($parts[$key]);
+            if (is_array($part)) {
+                $parts = array_merge($parts, $this->mergeSections($part, $key));
+            } else {
+                if (!empty($preppend)) {
+                    $key = $preppend . '_' . $key;
+                }
+                $parts[$key] = $part;
+            }
+        }
+        return $parts;
     }
 
     protected function isWithVars(string $value): bool
@@ -148,7 +174,7 @@ class EnvVars
             $string .= ";";
         }
         $return = null;
-        eval("\$return={$string}");
+        eval ("\$return={$string}");
         return $return;
     }
 
