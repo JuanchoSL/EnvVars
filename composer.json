@@ -12,8 +12,9 @@
     "authors": [
         {
             "name": "Juan Sánchez Lecegui",
-            "email": "JuanchoSL@hotmail.com",
-            "homepage": "https://github.com/JuanchoSL/"
+            "email": "Juan.Sanchez@tecnicosweb.com",
+            "homepage": "https://www.linkedin.com/in/juansanchezlecegui/",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -23,7 +24,7 @@
         "juanchosl/exceptions": "1.0.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "9.6.*",
+        "phpunit/phpunit": "10.5.*",
         "phpstan/phpstan": "1.9.1"
     },
     "autoload": {
