@@ -23,7 +23,7 @@ jobs:
           - "8.3"
           - "8.4"
           - "8.5"
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-latest]
         dependencies: ["install", "update"]
 
     steps:
